@@ -103,8 +103,8 @@ export  function singleMovieReducer(idx){
 
 // cart 
 
-export  function cartReducer(idx , price){
-    // console.log('redux',idx)
+export  function cartReducer(idx , price , Obj){
+    // console.log('redux',Obj)
     return async function cartThunk(dispatch , getState){
         dispatch(getStatus(STATUS.LOADING))
 
@@ -125,7 +125,7 @@ export  function cartReducer(idx , price){
             
             
             dispatch(getStatus(STATUS.IDLE));
-            dispatch(getCartMovies({flt, price}))
+            dispatch(getCartMovies({flt, price , Obj}))
             localStorage.setItem('movieCart' , JSON.stringify(getState().Movies.cartDetails.cartItems))
             
         }catch (err) {  
