@@ -45,9 +45,11 @@ const Cart = () => {
 
           {cartItems && cartItems.map((curEl, ind) => {
             {/* console.log(curEl); */}
-            const { flt, price } = { ...curEl }
+            const { flt, price , Obj } = { ...curEl }
             const { show } = { ...flt[0] };
             const { id, name, genres, image, language, rating, summary } = { ...show };
+            const {firstName, lastName} = {...Obj}
+            console.log(firstName , lastName);
                
 
             return (
@@ -67,6 +69,9 @@ const Cart = () => {
                       </div>
                       <div className="mt-4 flex items-center">
                         <span className=" font-bold">Price : {price}</span>
+                      </div>
+                      <div className="mt-4 flex items-center">
+                        <span className=" font-bold">Name : {firstName}  {lastName}</span>
                       </div>
                     </div>
                   </div>
