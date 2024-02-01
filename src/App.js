@@ -1,23 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+// import './App.css';
+
+import Axios from "axios";
+import { useEffect } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Form from "./Assests/Form";
+import Cart from "./Pages/Cart";
+import Home from "./Pages/Home";
+import Movies from "./Pages/Movies";
+import PageNotFound from "./Pages/PageNotFound";
+import SinglePage from "./Pages/SinglePage";
 
 function App() {
+
+
+
+ 
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+
+
+        <BrowserRouter >
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/movies" element={<Movies />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/detail/:id" element={<SinglePage />} />
+            <Route path="/form/:id" element={<Form />} />
+            <Route path="*" element={<PageNotFound />} />
+          </Routes>
+        </BrowserRouter>
+
     </div>
   );
 }
